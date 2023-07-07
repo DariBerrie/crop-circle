@@ -1,5 +1,5 @@
 class Farm < ApplicationRecord
   belongs_to :user
-  geocoded by :address
+  geocoded_by :address
   after_validation :geocode
 end
