@@ -33,7 +33,7 @@
           <% @weather_week.each do |day|%>
             <div class="weather-card">
               <p><%= day[:weekday][0..2] %></p>
-              <%= image_tag day[:icon], class: "mb-2", width: 25 %>
+              <%= image_tag "#{day[:icon]}.svg", class: "mb-2", width: 25 %>
               <p><%= day[:temp].round %>ºC</p>
             </div>
           <% end %>
