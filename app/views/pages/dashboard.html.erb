@@ -4,6 +4,7 @@
   <div class="column column-right">
     <div class="card card-news">
       <h3>News Feed</h3>
+
     </div>
     <div class="card card-tasks">
       <h3>Task Progress</h3>
@@ -78,8 +79,8 @@
         </div>
       </div>
       <div class="d-flex flex-column ms-4">
-        <div class="weather-map" 
-            data-controller="map" 
+        <div class="weather-map"
+            data-controller="map"
             data-map-marker-value="<%= current_user.farm.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
             style="border-radius:16px;height:200px;width:100px;"></div>

@@ -15,13 +15,14 @@ class PagesController < ApplicationController
     @tasks_done = Task.where(workStatus: "done")
     @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
     @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
+    @articles = Article.all
   end
 
   private
 
   # Here we're calling the Agromonitoring Current Weather Data API and returning its response to the dashboard action:
-  # https://agromonitoring.com/api/current-weather 
-  # This can definitely be improved. 
+  # https://agromonitoring.com/api/current-weather
+  # This can definitely be improved.
   require "json"
   require "date"
 
