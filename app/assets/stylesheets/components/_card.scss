@@ -7,3 +7,19 @@
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
+
+.weather-card {
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+.weather-panel {
+  display: flex;
+  flex-direction: row;
+}
