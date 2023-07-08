@@ -36,6 +36,7 @@
 .weather-week-panel {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #chart-source {
@@ -56,6 +57,41 @@
   max-height: 70vh;
 }
 
+.card-new {
+  background-color: rgb(255, 255, 255);
+  padding: 8px 26px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  margin-bottom: 0.1rem;
+}
+
+.card-new img {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.card-new h6 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card-info p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.card-title {
+  display: flex;
+}
+
 .card-tasks {
   flex: 1;
   justify-content: space-between;
@@ -66,15 +102,3 @@
     font-size: 12px;
     margin-bottom: 5px;
   }
-
-
-.card-new img {
-  width: 50px;
-}
-
-.card-new {
-  background-color: rgb(255, 255, 255);
-  padding: 8px;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
-}
