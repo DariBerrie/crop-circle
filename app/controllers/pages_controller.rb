@@ -12,6 +12,11 @@ class PagesController < ApplicationController
     @weather_week = format_weather
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
+    @data = [
+      { name: "My 2023", data: { "6/6" => 24, "13/6" => 34, "21/6" => 42, "27/6" => 46, "5/7" => 50, "11/7" => nil, "18/7" => nil, "25/7" => nil }},
+      { name: "2022", data: {"6/6" => 27, "13/6" => 40, "21/6" => 46, "27/6" => 55, "5/7" => 65, "11/7" => 77, "18/7" => 85, "25/7" => 90 }}, 
+      { name: "2023", data: {"6/6" => 27, "13/6" => 43, "21/6" => 51 , "27/6" => 60, "5/7" => 63, "11/7" => 77, "18/7" => 82, "25/7" => 87 }}
+    ]
   end
 
   private
