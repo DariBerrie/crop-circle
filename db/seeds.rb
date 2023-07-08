@@ -115,13 +115,13 @@ articles = [
     author: "Agricultural Advisory Support",
     content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
     date: "2023-07-08",
-  }
+  },
 
   {
     category: "Science",
     author: "Facts",
     content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
-    date: "2023-07-08",
+    date: "2023-07-08"
   }
 ]
 
