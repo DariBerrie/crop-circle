@@ -1,15 +1,37 @@
 <%# This page is where we can start bringing in the necessary data for the final view. %>
 <div class="container">
-
+  <div class="collapse" id="collapseExample">
+    <div>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>
+  </div>
   <div class="column column-right">
     <div class="card card-news">
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="custom-collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+          Toggle Collapse 1
+        </button>
+      </p>
+      <div id="collapse1" class="custom-collapse">
+        <div class="collapse-body">
+          Collapsible content for Collapse 1 goes here.
+        </div>
+      </div>
       <h3>News Feed</h3>
-        <% @articles.each do |article|  %>
+        <% @articles.each_with_index do |article, index|  %>
         <div class="card-new">
           <%= image_tag("Maintenance.png") %>
           <h2> <%= article.category %></h2>
           <p> <%= article.author %> </p>
-          <p> <%= article.content %></p>
+          <% if article.content.length > 300 %>
+            <% article_id = "article#{index}" %>
+            <p class="article-truncated" id="<%= article_id %>">
+              <%= article.content %>
+            </p>
+            <button class="custom-collapse-btn" data-toggle="custom-collapse" data-target="#<%= article_id %>" aria-expanded="false" aria-controls="#<%= article_id %>">Read More</button>
+          <% else %>
+            <p> <%= article.content %></p>
+          <% end %>
           <p> <%= article.date.strftime('%F') %></p>
         </div>
         <% end %>

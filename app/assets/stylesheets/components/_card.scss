@@ -78,3 +78,15 @@
   border-radius: 4px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
+
+.article-truncated {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.full-length {
+  display: block;
+  font-color: red;
+}
