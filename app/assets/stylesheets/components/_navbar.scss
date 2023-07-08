@@ -20,3 +20,8 @@
   display: inline;
   padding-right: 8px;
 }
+
+button#peaches-tab, button#catnip-tab, button#corn-tab {
+  font-size: 12px;
+  color: $body-color
+}
