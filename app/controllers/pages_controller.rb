@@ -1,3 +1,7 @@
+require "nokogiri"
+require "open-uri"
+
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -6,6 +10,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @weather = request_weather
+    @wheat_price = request_price(1)
+    @corn_price = request_price(17)
   end
 
   private
@@ -13,9 +19,9 @@ class PagesController < ApplicationController
   require "open-uri"
 
   # Here we're calling the Agromonitoring Current Weather Data API and returning its response to the dashboard action:
-  # https://agromonitoring.com/api/current-weather 
-  # This can definitely be improved. 
-  
+  # https://agromonitoring.com/api/current-weather
+  # This can definitely be improved.
+
   def request_weather
     farm_lat = current_user.farm.latitude
     farm_lon = current_user.farm.longitude
@@ -23,4 +29,12 @@ class PagesController < ApplicationController
     weather_serialized = URI.open(url).read
     weather = JSON.parse(weather_serialized)
   end
+
+  def request_price(number)
+    trading_url = "https://tradingeconomics.com/commodity/wheat"
+    trading_file = URI.open(trading_url)
+    traiding_doc = Nokogiri::HTML.parse(trading_file)
+    price = traiding_doc.search('.table-minimize #p')[number].text.strip
+  end
+
 end
