@@ -1,13 +1,25 @@
 <%# This page is where we can start bringing in the necessary data for the final view. %>
 <div class="container">
-  <div class="card">
-    <h3>Weather Data</h3>
-    <p>Temperature in Kelvin: <%= @weather["main"]["temp"] %></p>
-  </div>
-
+  <div class="column column-left">
     <div class="card">
-    <h3>Price Data</h3>
-    <p>Price of Wheat (USd/Bu): <%= @wheat_price %></p>
-    <p>Price of Corn (USd/Bu): <%= @corn_price %></p>
+      <h3>Weather Data</h3>
+      <p>Temperature in Kelvin: <%= @weather["main"]["temp"] %></p>
+    </div>
+    <div class="card">
+      <h3>Price Data</h3>
+      <p>Price of Wheat (USd/Bu): <%= @wheat_price %></p>
+      <p>Price of Corn (USd/Bu): <%= @corn_price %></p>
+    </div>
+    <div class="card">
+      <h3>Prices placeholder</h3>
+    </div>
+  </div>
+  <div class="column column-right">
+    <div class="card">
+      <h3>News Feed</h3>
+    </div>
+    <div class="card">
+      <h3>Tasks Tracker</h3>
+    </div>
   </div>
 </div>
