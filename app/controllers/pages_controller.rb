@@ -12,9 +12,9 @@ class PagesController < ApplicationController
     @soil_data = request_soil_temperature
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
-    @tasks_done = Task.where(workStatus: "done")
-    @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
-    @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
+    # @tasks_done = Task.where(workStatus: "done")
+    # @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
+    # @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
     @articles = Article.all
     @peach_crop_data = [
       { name: "My 2023", data: {"6/6" => 24, "13/6" => 34, "21/6" => 42, "27/6" => 46, "5/7" => 50, "11/7" => nil, "18/7" => nil, "25/7" => nil, "1/8" => nil, "8/8" => nil  }},
@@ -48,6 +48,34 @@ class PagesController < ApplicationController
                               "7" => 420.8, "8" => 362.2, "9" => 334.4, "10" => 387.3, "11" => 554.8, "12" => 468.0}},
       { name: "2023", data: {"1" => 575.9, "2" => 439.8, "3" => 565.0, "4" => 373.5, "5" => 478.2, "6" => nil,
                               "7" => nil, "8" => nil, "9" => nil, "10" => nil, "11" => nil, "12" => nil }}
+    ]
+    @tasks = [
+      {
+        name: "Application",
+        product: "\"Tank Mix\": \"Touchdown Total\" (rate: 48), \"FS MaxSupreme\" (rate: 32)",
+        date: "2023-07-03",
+        duration: {
+          value: 10,
+          unit: "minutes"
+        }
+      },
+      {
+        name: "Tillage",
+        date: "2023-06-13",
+        depth: {
+          result: 7.3,
+          target: 7.0
+        },
+        pressure: {
+          result: 20,
+          target: 19.9
+        },
+        speed: 4.2,
+        duration: {
+          value: 3,
+          unit: "days"
+        }
+      }
     ]
   end
 
