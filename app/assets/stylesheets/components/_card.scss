@@ -4,8 +4,15 @@
   border: none;
   border-radius: 8px;
   margin: 16px;
-  padding: 16px;
+  padding: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
+
+  h3 {
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
 }
 
 .weather-card {
@@ -29,6 +36,14 @@
 .weather-week-panel {
   display: flex;
   flex-direction: row;
+}
+
+.card-news {
+  flex: 4;
+}
+
+.card-tasks {
+  flex: 1;
   justify-content: space-between;
   align-items: start;
   padding-bottom: 8px;

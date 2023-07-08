@@ -1,7 +1,6 @@
 require "nokogiri"
 require "open-uri"
 
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -13,6 +12,9 @@ class PagesController < ApplicationController
     @soil_data = request_soil_temperature
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
+    @tasks_done = Task.where(workStatus: "done")
+    @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
+    @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
   end
 
   private
@@ -21,7 +23,6 @@ class PagesController < ApplicationController
   # https://agromonitoring.com/api/current-weather 
   # This can definitely be improved. 
   require "json"
-  require "open-uri"
   require "date"
 
   def request_weather
@@ -73,5 +74,4 @@ class PagesController < ApplicationController
     price_data << day
     price_data
   end
-
 end

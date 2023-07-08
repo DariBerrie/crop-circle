@@ -1,6 +1,35 @@
 <%# This page is where we can start bringing in the necessary data for the final view. %>
 <div class="container">
 
+  <div class="column column-right">
+    <div class="card card-news">
+      <h3>News Feed</h3>
+    </div>
+    <div class="card card-tasks">
+      <h3>Task Progress</h3>
+      <div class="tasks-container">
+        <div class="tasks-column">
+          <h4>Next</h4>
+          <% @tasks_planned.each do |task| %>
+            <%= render "components/task", task: task %>
+          <% end %>
+        </div>
+        <div class="tasks-column">
+          <h4>In Progress</h4>
+          <% @tasks_ongoing.each do |task| %>
+            <%= render "components/task", task: task %>
+          <% end %>
+        </div>
+        <div class="tasks-column">
+          <h4>Done</h4>
+          <% @tasks_done.each do |task| %>
+            <%= render "components/task", task: task %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="column column-left">
      <div class="card d-flex align-items-start">
       <h5 style="font-size:16px;">Weather</h5>
@@ -82,14 +111,6 @@
     </div>
     <div class="card">
       <h3>Plants progress</h3>
-    </div>
-  </div>
-  <div class="column column-right">
-    <div class="card">
-      <h3>News Feed</h3>
-    </div>
-    <div class="card">
-      <h3>Tasks Tracker</h3>
     </div>
   </div>
 </div>
