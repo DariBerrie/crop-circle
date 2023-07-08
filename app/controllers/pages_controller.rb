@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @weather = request_weather
+    @weather_week = format_weather
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
     @tasks_done = Task.where(workStatus: "done")
@@ -18,19 +18,41 @@ class PagesController < ApplicationController
   end
 
   private
-  require "json"
-  require "open-uri"
 
   # Here we're calling the Agromonitoring Current Weather Data API and returning its response to the dashboard action:
-  # https://agromonitoring.com/api/current-weather
-  # This can definitely be improved.
+  # https://agromonitoring.com/api/current-weather 
+  # This can definitely be improved. 
+  require "json"
+  require "open-uri"
+  require "date"
 
   def request_weather
-    farm_lat = current_user.farm.latitude
-    farm_lon = current_user.farm.longitude
-    url = "https://api.agromonitoring.com/agro/1.0/weather?lat=#{farm_lat}&lon=#{farm_lon}&appid=#{ENV['AGROMONITORING_API_KEY']}"
+    lat = current_user.farm.latitude
+    lon = current_user.farm.longitude
+    now = DateTime.now
+    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today/next4days?key=#{ENV['VC_API_KEY']}&include=current"
     weather_serialized = URI.open(url).read
     weather = JSON.parse(weather_serialized)
+  end
+
+  def format_weather
+    weather = request_weather
+    weather_week = []
+    weather["days"].each do |day|
+      weather_hash = {
+        datetime: Date.parse(day["datetime"]),
+        weekday: Date.parse(day["datetime"]).strftime('%A'),
+        temp: day["temp"],
+        sunrise: day["sunrise"],
+        sunset: day["sunset"],
+        conditions: day["conditions"],
+        precip_prob: day["precipprob"],
+        description: day["description"],
+        icon: day["icon"]
+        }
+        weather_week << weather_hash
+    end
+    weather_week
   end
 
   def request_price(number)
