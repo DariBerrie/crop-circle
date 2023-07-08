@@ -18,3 +18,10 @@ Farm.create!(address: "400 Chemin Des Pins, 26260 Saint Donat Sur L'Herbasse, Fr
 
 puts "Farm created"
 
+# create different tasks
+puts "Creating tasks"
+tasks = [
+  {
+    fieldOperationType: "tillage",
+
+]
