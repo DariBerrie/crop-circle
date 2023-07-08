@@ -6,6 +6,7 @@ puts "Killing users, imploding farms, cancelling tasks"
 Task.destroy_all
 Farm.destroy_all
 User.destroy_all
+Article.destroy_all
 
 user = User.create!(first_name: "Jeanne", last_name: "Farmer", email: "jeanne.farmer@example.com",
              username: "j_farmer", password: "123456")
@@ -88,3 +89,33 @@ tasks.each do |task|
   Task.create!(task)
 end
 puts "Tasks created"
+
+puts 'Creating articles'
+
+articles = [
+  {
+    category: "Maintenance Alert",
+    author: "John Deere Notifications",
+    content: " Give your Tractors some TLC! Schedule maintenance now for peak performance and extended lifespan!",
+    date: "2023-07-08",
+  },
+
+  {
+    category: "Weather Alert",
+    author: "Weather Central Notifications",
+    content: "Storm Alert: Brace for Impact! Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
+    date: "2023-07-08",
+  },
+
+  {
+    category: "Science facts",
+    author: "Facts",
+    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
+    date: "2023-07-08",
+  }
+]
+
+articles.each do |article|
+  Article.create!(article)
+end
+puts "Articles created"
