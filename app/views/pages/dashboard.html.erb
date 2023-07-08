@@ -6,9 +6,27 @@
       <p>Temperature in Kelvin: <%= @weather["main"]["temp"] %></p>
     </div>
     <div class="card">
-      <h3>Price Data</h3>
-      <p>Price of Wheat (USd/Bu): <%= @wheat_price %></p>
-      <p>Price of Corn (USd/Bu): <%= @corn_price %></p>
+      <h3>Global Prices</h3>
+      <table>
+        <tr>
+          <td> </td>
+          <td> Price (USd/Bu) </td>
+          <td> </td>
+          <td>Day</td>
+        </tr>
+        <tr>
+          <td>Wheat</td>
+          <td> <%= @wheat_price[0] %> </td>
+          <td> 🔻 </td>
+          <td> <%= @wheat_price[1] %> </td>
+        </tr>
+        <tr>
+          <td>Corn</td>
+          <td> <%= @corn_price[0] %> </td>
+          <td> 🔻 </td>
+          <td> <%= @corn_price[1] %> </td>
+        </tr>
+      </table>
     </div>
     <div class="card">
       <h3>Prices placeholder</h3>
