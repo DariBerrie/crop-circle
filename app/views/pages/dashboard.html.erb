@@ -1,7 +1,16 @@
 <%# This page is where we can start bringing in the necessary data for the final view. %>
 <div class="container">
   <div class="card">
-    <h3>Weather Data</h3>
-    <p>Temperature in Kelvin: <%= @weather["main"]["temp"] %></p>
+    <h5>Weather</h5>
+    <div class="weather-panel">
+      <% @weather_week.each do |day|%>
+        <div class="weather-card">
+          <p><%= day[:weekday] %></p>
+          <%= image_tag day[:icon], class: "mb-2" %>
+          <p><%= day[:temp] %>ºC</p>
+        </div>
+      <% end %>
+    </div>
+      
   </div>
 </div>
