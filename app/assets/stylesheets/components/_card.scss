@@ -36,6 +36,17 @@
 .weather-week-panel {
   display: flex;
   flex-direction: row;
+}
+
+#chart-source {
+  position: absolute;
+  font-size: 8px;
+  color: rgb(180, 178, 178);
+  bottom: 12px;
+  right: 12px;
+  a {
+    color: rgb(180, 178, 178);
+  }
   justify-content: space-between;
 }
 
@@ -47,6 +58,7 @@
   flex: 1;
   justify-content: space-between;
   align-items: start;
+}
   padding-bottom: 8px;
   p {
     font-size: 12px;
