@@ -7,16 +7,6 @@
   </div>
   <div class="column column-right">
     <div class="card card-news">
-      <p>
-        <button class="btn btn-primary" type="button" data-toggle="custom-collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-          Toggle Collapse 1
-        </button>
-      </p>
-      <div id="collapse1" class="custom-collapse">
-        <div class="collapse-body">
-          Collapsible content for Collapse 1 goes here.
-        </div>
-      </div>
       <h3>News Feed</h3>
         <% @articles.each_with_index do |article, index|  %>
         <div class="card-new">
@@ -32,7 +22,6 @@
           <% else %>
             <p> <%= article.content %></p>
           <% end %>
-          <p> <%= article.date.strftime('%F') %></p>
         </div>
         <% end %>
     </div>
