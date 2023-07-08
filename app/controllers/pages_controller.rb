@@ -26,6 +26,10 @@ class PagesController < ApplicationController
         name: "Application",
         product: "\"Tank Mix\": \"Touchdown Total\" (rate: 48), \"FS MaxSupreme\" (rate: 32)",
         date: "2023-07-03",
+        duration: {
+          value: 10,
+          unit: "minutes"
+        }
       },
       {
         name: "Tillage",
@@ -38,7 +42,11 @@ class PagesController < ApplicationController
           result: 20,
           target: 19.9
         },
-        speed: 4.2
+        speed: 4.2,
+        duration: {
+          value: 3,
+          unit: "days"
+        }
       }
     ]
   end
