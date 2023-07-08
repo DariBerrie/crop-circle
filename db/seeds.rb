@@ -94,21 +94,28 @@ puts 'Creating articles'
 
 articles = [
   {
-    category: "Maintenance Alert",
+    category: "Maintenance",
     author: "John Deere Notifications",
     content: " Give your Tractors some TLC! Schedule maintenance now for peak performance and extended lifespan!",
     date: "2023-07-08",
   },
 
   {
-    category: "Weather Alert",
+    category: "Weather",
     author: "Weather Central Notifications",
     content: "Storm Alert: Brace for Impact! Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
     date: "2023-07-08",
   },
 
   {
-    category: "Science facts",
+    category: "Guidance",
+    author: "Agricultural Advisory Support",
+    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
+    date: "2023-07-08",
+  }
+
+  {
+    category: "Science",
     author: "Facts",
     content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
     date: "2023-07-08",
