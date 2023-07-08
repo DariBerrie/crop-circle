@@ -35,6 +35,11 @@ class PagesController < ApplicationController
     trading_file = URI.open(trading_url)
     traiding_doc = Nokogiri::HTML.parse(trading_file)
     price = traiding_doc.search('.table-minimize #p')[number].text.strip
+    day = traiding_doc.search('.table-minimize #pch')[number].text.strip
+    price_data = []
+    price_data << price
+    price_data << day
+    price_data
   end
 
 end
