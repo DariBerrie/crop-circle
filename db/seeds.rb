@@ -1,8 +1,12 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Examples:
+#
+#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
+#   Character.create(name: "Luke", movie: movies.first)
 
 puts "Killing users, imploding farms, cancelling tasks"
-
 Task.destroy_all
 Farm.destroy_all
 User.destroy_all
@@ -12,8 +16,7 @@ user = User.create!(first_name: "Jeanne", last_name: "Farmer", email: "jeanne.fa
              username: "j_farmer", password: "123456")
 
 puts "Jeanne Farmer created"
-Farm.create!(address: "400 Chemin Des Pins, 26260 Saint Donat Sur L'Herbasse, France", user: user)
-
+farm = Farm.create!(address: "400 Chemin Des Pins, 26260 Saint Donat Sur L'Herbasse, France", user: user)
 puts "Farm created"
 
 # create different tasks
@@ -93,33 +96,35 @@ puts "Tasks created"
 puts 'Creating articles'
 
 articles = [
+
+  {
+    category: "Your Farm Update",
+    author: "John Deere Operation Center",
+    content: "Great news!🌾 Tilling at full throttle pays off. Your latest tillage operation achieved an impressive average speed of 4.3 mph, ensuring efficient soil preparation for optimal crop growth. Keep up the momentum and cultivate success!",
+    date: "2023-07-08"
+  },
+
   {
     category: "Maintenance",
     author: "John Deere Notifications",
-    content: " Give your Tractors some TLC! Schedule maintenance now for peak performance and extended lifespan!",
+    content: " Give your Tractors some TLC!🚜 Schedule maintenance now for peak performance and extended lifespan!",
     date: "2023-07-08",
   },
 
   {
     category: "Weather",
     author: "Weather Central Notifications",
-    content: "Storm Alert: Brace for Impact! Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
+    content: "Storm Alert: Brace for Impact!⛈️ Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
     date: "2023-07-08",
   },
 
   {
     category: "Guidance",
     author: "Agricultural Advisory Support",
-    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
+    content: "Did you know that corn crops possess a remarkable root system?🌽 Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
     date: "2023-07-08",
   }
 
-  {
-    category: "Science",
-    author: "Facts",
-    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
-    date: "2023-07-08",
-  }
 ]
 
 articles.each do |article|
