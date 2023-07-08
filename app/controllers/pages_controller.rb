@@ -1,7 +1,6 @@
 require "nokogiri"
 require "open-uri"
 
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -10,9 +9,14 @@ class PagesController < ApplicationController
 
   def dashboard
     @weather_week = format_weather
+    @soil_data = request_soil_temperature
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
-    @data = [
+    @tasks_done = Task.where(workStatus: "done")
+    @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
+    @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
+    @articles = Article.all
+    @crop_data = [
       { name: "My 2023", data: { "6/6" => 24, "13/6" => 34, "21/6" => 42, "27/6" => 46, "5/7" => 50, "11/7" => nil, "18/7" => nil, "25/7" => nil }},
       { name: "2022", data: {"6/6" => 27, "13/6" => 40, "21/6" => 46, "27/6" => 55, "5/7" => 65, "11/7" => 77, "18/7" => 85, "25/7" => 90 }}, 
       { name: "2023", data: {"6/6" => 27, "13/6" => 43, "21/6" => 51 , "27/6" => 60, "5/7" => 63, "11/7" => 77, "18/7" => 82, "25/7" => 87 }}
@@ -22,17 +26,16 @@ class PagesController < ApplicationController
   private
 
   # Here we're calling the Agromonitoring Current Weather Data API and returning its response to the dashboard action:
-  # https://agromonitoring.com/api/current-weather 
-  # This can definitely be improved. 
+  # https://agromonitoring.com/api/current-weather
+  # This can definitely be improved.
   require "json"
-  require "open-uri"
   require "date"
 
   def request_weather
     lat = current_user.farm.latitude
     lon = current_user.farm.longitude
     now = DateTime.now
-    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today/next4days?key=#{ENV['VC_API_KEY']}&include=current"
+    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today/next4days?unitGroup=metric&key=#{ENV['VC_API_KEY']}&include=current"
     weather_serialized = URI.open(url).read
     weather = JSON.parse(weather_serialized)
   end
@@ -57,6 +60,15 @@ class PagesController < ApplicationController
     weather_week
   end
 
+  def request_soil_temperature
+    lat = current_user.farm.latitude
+    lon = current_user.farm.longitude
+    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today?unitGroup=metric&key=#{ENV['VC_API_KEY']}&include=current&elements=soiltemp01,soiltemp04,soiltemp10,soilmoisture01,soilmoisture04,soilmoisture10,et0"
+    soil_data_serialized = URI.open(url).read
+    soil_data = JSON.parse(soil_data_serialized)
+    soil_data = soil_data["days"][0]
+  end
+
   def request_price(number)
     trading_url = "https://tradingeconomics.com/commodity/wheat"
     trading_file = URI.open(trading_url)
@@ -68,5 +80,4 @@ class PagesController < ApplicationController
     price_data << day
     price_data
   end
-
 end
