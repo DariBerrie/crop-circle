@@ -5,7 +5,7 @@
     <div class="card card-news">
       <h3>News Feed</h3>
         <% @articles.each do |article|  %>
-        <div class="card card-new">
+        <div class="card-new">
           <%= image_tag("Maintenance.png") %>
           <h2> <%= article.category %></h2>
           <p> <%= article.author %> </p>
@@ -97,26 +97,31 @@
     </div>
     <div class="card">
       <h5>Global Prices</h5>
-      <table>
-        <tr>
-          <td> </td>
-          <td> Price (USd/Bu) </td>
-          <td> </td>
-          <td>Today</td>
-        </tr>
-        <tr>
-          <td>Wheat</td>
-          <td> <%= @wheat_price[0] %> </td>
-          <td> 🔻 </td>
-          <td> <%= @wheat_price[1] %> </td>
-        </tr>
-        <tr>
-          <td>Corn</td>
-          <td> <%= @corn_price[0] %> </td>
-          <td> 🔻 </td>
-          <td> <%= @corn_price[1] %> </td>
-        </tr>
-      </table>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="peaches-tab" data-bs-toggle="tab" data-bs-target="#peaches" type="button" role="tab" aria-controls="peaches" aria-selected="true">Peaches</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="catnip-tab" data-bs-toggle="tab" data-bs-target="#catnip" type="button" role="tab" aria-controls="catnip" aria-selected="false">Catnip</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="corn-tab" data-bs-toggle="tab" data-bs-target="#corn" type="button" role="tab" aria-controls="corn" aria-selected="false">Corn</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="peaches" role="tabpanel" aria-labelledby="peaches-tab">
+          <%= line_chart @peach_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Peaches By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b" ], width: "450px", height: "200px" %>
+          <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
+        </div>
+        <div class="tab-pane fade" id="catnip" role="tabpanel" aria-labelledby="catnip-tab">
+           <%= area_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Catnip By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b"], width: "450px", height: "200px" %>
+          <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
+        </div>
+        <div class="tab-pane fade" id="corn" role="tabpanel" aria-labelledby="corn-tab">
+          <%= area_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Corn By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b"], width: "450px", height: "200px" %>
+          <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
+        </div>
+      </div>
     </div>
     <div class="card">
       <h5>Regional Crop Progress</h5>
@@ -133,15 +138,15 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="peaches" role="tabpanel" aria-labelledby="peaches-tab">
-          <%= area_chart @peach_crop_data, library: { title: "Peach Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
+          <%= area_chart @peach_crop_data, xtitle: "Date", ytitle: "Harvest %", library: { title: "Peach Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
         <div class="tab-pane fade" id="catnip" role="tabpanel" aria-labelledby="catnip-tab">
-           <%= area_chart @catnip_crop_data, library: { title: "Catnip Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
+           <%= area_chart @catnip_crop_data, xtitle: "Date", ytitle: "Harvest %", library: { title: "Catnip Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
         <div class="tab-pane fade" id="corn" role="tabpanel" aria-labelledby="corn-tab">
-          <%= area_chart @corn_crop_data, library: { title: "Corn Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
+          <%= area_chart @corn_crop_data, xtitle: "Date", ytitle: "Harvest %", library: { title: "Corn Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
       </div>

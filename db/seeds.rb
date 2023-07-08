@@ -96,33 +96,35 @@ puts "Tasks created"
 puts 'Creating articles'
 
 articles = [
+
+  {
+    category: "Your Farm Update",
+    author: "John Deere Operation Center",
+    content: "Great news!🌾 Tilling at full throttle pays off. Your latest tillage operation achieved an impressive average speed of 4.3 mph, ensuring efficient soil preparation for optimal crop growth. Keep up the momentum and cultivate success!",
+    date: "2023-07-08"
+  },
+
   {
     category: "Maintenance",
     author: "John Deere Notifications",
-    content: " Give your Tractors some TLC! Schedule maintenance now for peak performance and extended lifespan!",
+    content: " Give your Tractors some TLC!🚜 Schedule maintenance now for peak performance and extended lifespan!",
     date: "2023-07-08",
   },
 
   {
     category: "Weather",
     author: "Weather Central Notifications",
-    content: "Storm Alert: Brace for Impact! Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
+    content: "Storm Alert: Brace for Impact!⛈️ Secure your crops and safeguard your fields against the impending storm. Stay prepared and protect your harvest!",
     date: "2023-07-08",
   },
 
   {
     category: "Guidance",
     author: "Agricultural Advisory Support",
-    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
+    content: "Did you know that corn crops possess a remarkable root system?🌽 Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
     date: "2023-07-08",
-  },
-
-  {
-    category: "Science",
-    author: "Facts",
-    content: "Did you know that corn crops possess a remarkable root system? Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
-    date: "2023-07-08"
   }
+
 ]
 
 articles.each do |article|
