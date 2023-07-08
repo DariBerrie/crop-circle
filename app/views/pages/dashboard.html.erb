@@ -6,11 +6,14 @@
       <h3>News Feed</h3>
         <% @articles.each do |article|  %>
         <div class="card-new">
-          <%= image_tag("Maintenance.png") %>
-          <h2> <%= article.category %></h2>
-          <p> <%= article.author %> </p>
+          <div class='card-title'>
+            <%= image_tag("Maintenance.png") %>
+            <div class="card-info">
+              <h6> <%= article.category %></h6>
+              <p> <%= article.author %> </p>
+            </div>
+          </div>
           <p> <%= article.content %></p>
-          <p> <%= article.date.strftime('%F') %></p>
         </div>
         <% end %>
     </div>
@@ -41,7 +44,8 @@
 
   <div class="column column-left">
      <div class="card d-flex align-items-start">
-      <h5>Weather</h5>
+      <h3 style="font-size:16px;">Weather</h3>
+
       <div class="d-flex flex-row justify-content-center">
       <div class="d-flex flex-column">
         <div class="weather-week-panel" style="border-bottom:1px solid grey;margin-bottom:8px;">
@@ -95,8 +99,14 @@
       </div>
     </div>
     </div>
+   
+
     <div class="card">
-      <h5>Global Prices</h5>
+      <h3>Regional Crop Progress</h3>
+      <%= area_chart @crop_data, library: { title: "Peach Crop Progress"}, colors: ["#367c2b", "#d1ecf5", "#ffde00"], width: "300px", height: "200px" %>
+      <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
+      
+      <h3>Global Prices</h3>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="peaches-tab" data-bs-toggle="tab" data-bs-target="#peaches" type="button" role="tab" aria-controls="peaches" aria-selected="true">Peaches</button>
@@ -124,7 +134,7 @@
       </div>
     </div>
     <div class="card">
-      <h5>Regional Crop Progress</h5>
+      <h3>Regional Crop Progress</h3>
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="peaches-tab" data-bs-toggle="tab" data-bs-target="#peaches" type="button" role="tab" aria-controls="peaches" aria-selected="true">Peaches</button>
