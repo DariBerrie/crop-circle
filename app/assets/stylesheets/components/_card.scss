@@ -2,10 +2,9 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 8px;
-  margin: 16px;
+  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  box-shadow: 0px 4px 20px 0px rgba(238, 238, 238, 0.50);
 
   h3 {
     font-size: 16px;
@@ -16,7 +15,7 @@
 }
 
 .weather-card {
-  width: 40px;
+  width: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,17 +24,19 @@
 .weather-panel {
   display: flex;
   flex-direction: row;
-  width: 150px;
-  padding: 8px 0;
+  width: 130px;
+  margin-top: 8px;
+
   p {
     font-size: 12px;
-    margin-bottom: 5px;
+    margin: 0;
   }
 }
 
 .weather-week-panel {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 #chart-source {
@@ -52,8 +53,38 @@
 
 .card-news {
   flex: 4;
-  overflow: scroll;
   max-height: 70vh;
+  position: relative;
+
+  .news-container {
+    overflow-y: scroll;
+  }
+}
+
+.card-new img {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-new h6 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card-info p {
+  font-size: 10px;
+  margin: 0;
+}
+
+.card-title {
+  display: flex;
 }
 
 .card-tasks {
@@ -61,12 +92,12 @@
   justify-content: space-between;
   align-items: start;
   padding-bottom: 8px;
-}
+
   p {
     font-size: 12px;
     margin-bottom: 5px;
   }
-
+}
 
 .card-new img {
   width: 50px;
@@ -74,9 +105,7 @@
 
 .card-new {
   background-color: rgb(255, 255, 255);
-  padding: 8px;
-  border-radius: 4px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  padding: 8px 0;
 }
 
 .article-truncated:not(.full-length) {
