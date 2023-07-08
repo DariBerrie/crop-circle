@@ -20,13 +20,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.weather-panel {
+  display: flex;
+  flex-direction: row;
+  width: 150px;
+  padding: 8px 0;
   p {
     font-size: 12px;
     margin-bottom: 5px;
   }
 }
 
-.weather-panel {
+.weather-week-panel {
   display: flex;
   flex-direction: row;
 }
@@ -37,4 +44,11 @@
 
 .card-tasks {
   flex: 1;
+  justify-content: space-between;
+  align-items: start;
+  padding-bottom: 8px;
+  p {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
 }

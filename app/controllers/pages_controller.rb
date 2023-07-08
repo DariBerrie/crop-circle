@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @weather_week = format_weather
+    @soil_data = request_soil_temperature
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
     @tasks_done = Task.where(workStatus: "done")
@@ -28,7 +29,7 @@ class PagesController < ApplicationController
     lat = current_user.farm.latitude
     lon = current_user.farm.longitude
     now = DateTime.now
-    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today/next4days?key=#{ENV['VC_API_KEY']}&include=current"
+    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today/next4days?unitGroup=metric&key=#{ENV['VC_API_KEY']}&include=current"
     weather_serialized = URI.open(url).read
     weather = JSON.parse(weather_serialized)
   end
@@ -51,6 +52,15 @@ class PagesController < ApplicationController
         weather_week << weather_hash
     end
     weather_week
+  end
+
+  def request_soil_temperature
+    lat = current_user.farm.latitude
+    lon = current_user.farm.longitude
+    url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/#{lat},#{lon}/today?unitGroup=metric&key=#{ENV['VC_API_KEY']}&include=current&elements=soiltemp01,soiltemp04,soiltemp10,soilmoisture01,soilmoisture04,soilmoisture10,et0"
+    soil_data_serialized = URI.open(url).read
+    soil_data = JSON.parse(soil_data_serialized)
+    soil_data = soil_data["days"][0]
   end
 
   def request_price(number)
