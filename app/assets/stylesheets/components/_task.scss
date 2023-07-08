@@ -1,0 +1,16 @@
+.tasks-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tasks-column {
+  width: 100%;
+
+  h4 {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+}

@@ -1,7 +1,6 @@
 require "nokogiri"
 require "open-uri"
 
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -23,7 +22,6 @@ class PagesController < ApplicationController
   # https://agromonitoring.com/api/current-weather 
   # This can definitely be improved. 
   require "json"
-  require "open-uri"
   require "date"
 
   def request_weather
