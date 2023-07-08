@@ -4,7 +4,15 @@
   <div class="column column-right">
     <div class="card card-news">
       <h3>News Feed</h3>
-
+        <% @articles.each do |article|  %>
+        <div class="card card-new">
+          <%= image_tag("Maintenance.png") %>
+          <h2> <%= article.category %></h2>
+          <p> <%= article.author %> </p>
+          <p> <%= article.content %></p>
+          <p> <%= article.date.strftime('%F') %></p>
+        </div>
+        <% end %>
     </div>
     <div class="card card-tasks">
       <h3>Task Progress</h3>
