@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: crop_circle_production
   username: crop_circle
   password: <%= ENV["CROP_CIRCLE_DATABASE_PASSWORD"] %>
