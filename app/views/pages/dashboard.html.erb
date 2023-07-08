@@ -2,17 +2,60 @@
 <div class="container">
 
   <div class="column column-left">
-     <div class="card">
-      <h5>Weather</h5>
-      <div class="weather-panel">
-        <% @weather_week.each do |day|%>
-          <div class="weather-card">
-            <p><%= day[:weekday][0..2] %></p>
-            <%= image_tag day[:icon], class: "mb-2", width: 25 %>
-            <p><%= day[:temp].round %>ºC</p>
+     <div class="card d-flex align-items-start">
+      <h5 style="font-size:16px;">Weather</h5>
+      <div class="d-flex flex-row justify-content-center">
+      <div class="d-flex flex-column">
+        <div class="weather-week-panel" style="border-bottom:1px solid grey;margin-bottom:8px;">
+          <% @weather_week.each do |day|%>
+            <div class="weather-card">
+              <p><%= day[:weekday][0..2] %></p>
+              <%= image_tag day[:icon], class: "mb-2", width: 25 %>
+              <p><%= day[:temp].round %>ºC</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="weather-panel">
+            <%= image_tag "plant-fill.svg", class: 'align-self-start me-1' %>
+            <div class="soil-card">
+              <p><%= @soil_data["soiltemp01"].round %>ºC</p>
+              <p>Soil Temp @ .01m</p>
+            </div>
           </div>
-        <% end %>
+          <div class="weather-panel">
+            <%= image_tag "rain.svg", class: 'align-self-start me-1' %>
+            <div class="precipitation-card">
+              <p><%= @weather_week[0][:precip_prob].round %>%</p>
+              <p>Chance of Rain</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-row justify-content-between">
+          <div class="weather-panel">
+            <%= image_tag "drop-fill.svg", class: 'align-self-start me-1' %>
+            <div class="soil-moisture-card">
+              <p><%= @soil_data["soilmoisture01"] %></p>
+              <p>Soil Moisture</p>
+            </div>
+          </div>
+          <div class="weather-panel">
+            <%= image_tag "sun-horizon-fill.svg", class: 'align-self-start me-1' %>
+            <div class="evapotranspiration-card">
+              <p><%= @soil_data["et0"] %></p>
+              <p>Evapotranspiration</p>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="d-flex flex-column ms-4">
+        <div class="weather-map" 
+            data-controller="map" 
+            data-map-marker-value="<%= current_user.farm.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            style="border-radius:16px;height:200px;width:100px;"></div>
+      </div>
+    </div>
     </div>
     <div class="card">
       <h3>Global Prices</h3>
