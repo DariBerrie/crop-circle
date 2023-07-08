@@ -1,3 +1,7 @@
+require "nokogiri"
+require "open-uri"
+
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -6,6 +10,8 @@ class PagesController < ApplicationController
 
   def dashboard
     @weather_week = format_weather
+    @wheat_price = request_price(1)
+    @corn_price = request_price(17)
   end
 
   private
@@ -45,4 +51,17 @@ class PagesController < ApplicationController
     end
     weather_week
   end
+
+  def request_price(number)
+    trading_url = "https://tradingeconomics.com/commodity/wheat"
+    trading_file = URI.open(trading_url)
+    traiding_doc = Nokogiri::HTML.parse(trading_file)
+    price = traiding_doc.search('.table-minimize #p')[number].text.strip
+    day = traiding_doc.search('.table-minimize #pch')[number].text.strip
+    price_data = []
+    price_data << price
+    price_data << day
+    price_data
+  end
+
 end
