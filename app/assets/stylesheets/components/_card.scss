@@ -36,6 +36,7 @@
 .weather-week-panel {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .card-news {
@@ -56,3 +57,5 @@
 .card-new img {
   width: 50px;
 }
+
+
