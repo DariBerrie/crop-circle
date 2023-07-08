@@ -34,10 +34,36 @@
   </div>
   <div class="column column-right">
     <div class="card">
-      <h3>News Feed</h3>
+      <h3>Task Progress</h3>
+      <div class="tasks-container">
+        <div class="tasks-column">
+          <h4>Next</h4>
+          <% @tasks_planned.each do |task| %>
+            <div class="task">
+              <p><%= task.fieldOperationsType %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="tasks-column">
+          <h4>In Progress</h4>
+          <% @tasks_ongoing.each do |task| %>
+            <div class="task">
+              <p><%= task.fieldOperationsType %></p>
+            </div>
+          <% end %>
+        </div>
+        <div class="tasks-column">
+          <h4>Done</h4>
+          <% @tasks_done.each do |task| %>
+            <div class="task">
+              <p><%= task.fieldOperationsType %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="card">
-      <h3>Tasks Tracker</h3>
+      <h3>News Feed</h3>
     </div>
   </div>
 </div>

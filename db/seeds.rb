@@ -22,6 +22,29 @@ puts "Farm created"
 puts "Creating tasks"
 tasks = [
   {
-    fieldOperationType: "tillage",
-
+    fieldOperationsType: "tillage",
+    startDate: "2023-07-02",
+    endDate: "2023-07-02",
+    workStatus: "done",
+    farm: Farm.first
+  },
+  {
+    fieldOperationsType: "seeding",
+    startDate: "2023-07-09",
+    endDate: "2023-07-09",
+    workStatus: "planned",
+    farm: Farm.first
+  },
+  {
+    fieldOperationsType: "harvest",
+    startDate: "2023-08-16",
+    endDate: "2023-08-16",
+    workStatus: "planned",
+    farm: Farm.first
+  }
 ]
+
+tasks.each do |task|
+  Task.create!(task)
+end
+puts "Tasks created"

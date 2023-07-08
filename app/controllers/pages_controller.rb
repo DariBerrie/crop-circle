@@ -12,6 +12,9 @@ class PagesController < ApplicationController
     @weather = request_weather
     @wheat_price = request_price(1)
     @corn_price = request_price(17)
+    @tasks_done = Task.where(workStatus: "done")
+    @tasks_ongoing = Task.where(workStatus: "planned", startDate: Date.today..Date.today + 7)
+    @tasks_planned = Task.where(workStatus: "planned", startDate: Date.today + 7..Date.today + 90)
   end
 
   private
@@ -41,5 +44,4 @@ class PagesController < ApplicationController
     price_data << day
     price_data
   end
-
 end

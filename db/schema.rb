@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_07_193241) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_08_095822) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_193241) do
     t.index ["field_id"], name: "index_products_on_field_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.string "fieldOperationsType"
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.bigint "farm_id", null: false
+    t.string "workStatus"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["farm_id"], name: "index_tasks_on_farm_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,4 +69,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_07_193241) do
   add_foreign_key "farms", "users"
   add_foreign_key "fields", "farms"
   add_foreign_key "products", "fields"
+  add_foreign_key "tasks", "farms"
 end
