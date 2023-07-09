@@ -88,10 +88,10 @@
 }
 
 .card-tasks {
-  flex: 1;
   justify-content: space-between;
   align-items: start;
   padding-bottom: 8px;
+  height: fit-content;
 
   p {
     font-size: 12px;
