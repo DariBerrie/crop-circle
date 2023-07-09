@@ -7,16 +7,18 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "Killing users, imploding farms, cancelling tasks"
+Product.destroy_all
+Field.destroy_all
 Task.destroy_all
 Farm.destroy_all
 User.destroy_all
 Article.destroy_all
 
-user = User.create!(first_name: "Jeanne", last_name: "Farmer", email: "jeanne.farmer@example.com",
-             username: "j_farmer", password: "123456")
+user = User.create!(first_name: "Natalia", last_name: "Farmer", email: "natalia.farmer@example.com",
+             username: "n_farmer", password: "123456")
 
-puts "Jeanne Farmer created"
-farm = Farm.create!(address: "400 Chemin Des Pins, 26260 Saint Donat Sur L'Herbasse, France", user: user)
+puts "Natalia Farmer created"
+farm = Farm.create!(address: "24629 180th St, Minburn, IA 50167, United States", user: user)
 puts "Farm created"
 
 # create different tasks
@@ -105,7 +107,7 @@ articles = [
   },
 
   {
-    category: "Guidance",
+    category: "Precision Agriculture",
     author: "Agricultural Advisory Support",
     content: "Here's a valuable tip to optimize your experience with John Deere equipment.🚜 When it comes to tire pressure, tailoring it to match the field conditions can work wonders. Adjusting the tire pressure on your John Deere machinery based on factors like soil type, moisture levels, and load capacity can have a significant impact. By finding the right balance, you enhance traction, minimize soil compaction, and even improve fuel efficiency. So, take a moment to assess your field's needs and fine-tune those tire pressures accordingly. Your crops and equipment will thank you, ensuring a smoother ride and a bountiful harvest!",
     date: "2023-07-08",
@@ -126,7 +128,7 @@ articles = [
   },
 
   {
-    category: "Guidance",
+    category: "Precision Agriculture",
     author: "Agricultural Advisory Support",
     content: "Did you know that corn crops possess a remarkable root system?🌽 Their extensive roots help improve soil structure, prevent erosion, and enhance nutrient uptake. Keep nurturing those roots for healthier and thriving cornfields!",
     date: "2023-07-08",
