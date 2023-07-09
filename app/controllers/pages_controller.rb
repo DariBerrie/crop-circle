@@ -79,7 +79,7 @@ class PagesController < ApplicationController
     ]
 
     @image_hash = {
-      "Weather" => "Weather.png",
+      "Weather" => "weather.png",
       "Precision Agriculture" => "Agriculture.png",
       "Your Farm Update" => "Deere.png",
       "Maintenance" => "Maintenance.png"
