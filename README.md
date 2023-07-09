@@ -6,6 +6,7 @@ To sign in:
 email: natalia.farmer@example.com
 password: 123456
 
-<img width="1508" alt="Screenshot 2023-07-09 at 10 39 41" src="https://github.com/DariBerrie/crop-circle/assets/59029920/90e6fc66-412e-4440-b9b9-a1a852dcee81">
 <img width="1509" alt="Screenshot 2023-07-09 at 10 39 18" src="https://github.com/DariBerrie/crop-circle/assets/59029920/aedc8a1f-adb0-41d3-95e1-7b592cdbb427">
+<img width="1508" alt="Screenshot 2023-07-09 at 10 39 41" src="https://github.com/DariBerrie/crop-circle/assets/59029920/90e6fc66-412e-4440-b9b9-a1a852dcee81">
+
 
