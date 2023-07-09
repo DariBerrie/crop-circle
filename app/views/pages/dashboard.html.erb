@@ -12,7 +12,7 @@
           <% @articles.each_with_index do |article, index|  %>
             <div class="card-new">
               <div class='card-title'>
-                <%= image_tag("Maintenance.png") %>
+                <%= image_tag(@image_hash[article.category]) %>
                 <div class="card-info">
                   <h6> <%= article.category %></h6>
                   <p> <%= article.author %> </p>
@@ -94,7 +94,7 @@
       </div>
     </div>
     </div>
-   
+
 
     <div class="card">
       <h3>Global Prices</h3>
@@ -151,7 +151,7 @@
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
       </div>
-      
+
     </div>
   </div>
 
