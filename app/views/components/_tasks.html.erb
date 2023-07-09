@@ -1,31 +1,51 @@
-<div class="task">
+<div class="tasks">
   <div class="task">
     <div class="task-header">
-      <%= image_tag("CheckCircle.png") %>
-      <div class="task-header-text">
+        <%= image_tag("CheckCircle.png") %>
         <h6> Application </h6>
-        <p>3 day ago</p>
-      </div>
+        <span>3 day ago</span>
     </div>
-    <ul>
-      <li><strong>Product:</strong> "Tank Mix": "Touchdown Total" (rate: 48), "FS MaxSupreme" (rate: 32)"</li>
-      <li><strong>Duration:</strong> 10min </li>
-      <li><strong>Date:</strong> 03.07.2023</li>
-    </ul>
+    <table class="task-details">
+      <tr>
+        <td>Duration</td>
+        <td>10min</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Product</td>
+        <td>Tank Mix</td>
+        <td>Touchdown Total (48 floz/ac) + FS MaxSupreme (32 floz/ac)</td>
+      </tr>
+    </table>
   </div>
 
   <div class="task">
     <div class="task-header">
       <%= image_tag("CheckCircle.png") %>
       <h6> Tillage </h6>
-      <p>3 weeks ago</p>
+      <span>3 weeks ago</span>
     </div>
-    <ul>
-      <li><strong>Duration:</strong> 3 days </li>
-      <li><strong>Date:</strong> 03.06.2023</li>
-      <li><strong>Depth:</strong> 7.3 in (0.3 in more than the target)</li>
-      <li><strong>Pressure:</strong> 20 psi</li>
-      <li><strong>Speed:</strong> 4.2 mph </li>
-    </ul>
+    <table class="task-details">
+      <tr>
+        <td>Duration</td>
+        <td>3 min</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Depth</td>
+        <td>7.3 in</td>
+        <td class="task-details__warning">0.3 in more than the target</td>
+      </tr>
+      <tr>
+        <td>Pressure</td>
+        <td>20 psi</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Speed</td>
+        <td>4.2 mph</td>
+        <td></td>
+      </tr>
+    </table>
   </div>
 </div>
