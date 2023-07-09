@@ -94,32 +94,32 @@
       </div>
     </div>
     </div>
-   
+
 
     <div class="card">
-      <h3>Global Prices</h3>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <h3>Crop Market Price</h3>
+      <ul class="nav nav-tabs" id="marketPriceTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="peaches-tab" data-bs-toggle="tab" data-bs-target="#peaches" type="button" role="tab" aria-controls="peaches" aria-selected="true">Peaches</button>
+          <button class="nav-link active" id="peaches-tab" data-bs-toggle="tab" data-bs-target="#peachesmk" type="button" role="tab" aria-controls="peaches" aria-selected="true">Peaches</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="catnip-tab" data-bs-toggle="tab" data-bs-target="#catnip" type="button" role="tab" aria-controls="catnip" aria-selected="false">Catnip</button>
+          <button class="nav-link" id="catnip-tab" data-bs-toggle="tab" data-bs-target="#catnipmk" type="button" role="tab" aria-controls="catnip" aria-selected="false">Catnip</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="corn-tab" data-bs-toggle="tab" data-bs-target="#corn" type="button" role="tab" aria-controls="corn" aria-selected="false">Corn</button>
+          <button class="nav-link" id="corn-tab" data-bs-toggle="tab" data-bs-target="#cornmk" type="button" role="tab" aria-controls="corn" aria-selected="false">Corn</button>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="peaches" role="tabpanel" aria-labelledby="peaches-tab">
-          <%= line_chart @peach_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Peaches By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b" ], width: "450px", height: "200px" %>
+        <div class="tab-pane fade show active" id="peachesmk" role="tabpanel" aria-labelledby="peaches-tab">
+          <%= line_chart @peach_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Peaches By Year"}, colors: ["#F9DA5B", "#007DD6","#4C7835" ], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
-        <div class="tab-pane fade" id="catnip" role="tabpanel" aria-labelledby="catnip-tab">
-           <%= area_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Catnip By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b"], width: "450px", height: "200px" %>
+        <div class="tab-pane fade" id="catnipmk" role="tabpanel" aria-labelledby="catnip-tab">
+           <%= line_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Catnip By Year"}, colors: ["#F9DA5B", "#007DD6","#4C7835"], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
-        <div class="tab-pane fade" id="corn" role="tabpanel" aria-labelledby="corn-tab">
-          <%= area_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Corn By Year"}, colors: ["#2C363B", "#0D6EFD","#367c2b"], width: "450px", height: "200px" %>
+        <div class="tab-pane fade" id="cornmk" role="tabpanel" aria-labelledby="corn-tab">
+          <%= line_chart @catnip_market_data, xtitle: "Month", ytitle: "Producer Price Index", library: { title: "Market Price for Corn By Year"}, colors: ["#F9DA5B", "#007DD6","#4C7835"], width: "450px", height: "200px" %>
           <p><span id="chart-source">*Sourced from the <a href="https://www.nass.usda.gov/Statistics_by_State/">USDA National Agricultural Statistics Service</a></span></p>
         </div>
       </div>
