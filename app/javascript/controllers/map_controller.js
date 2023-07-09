@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = {
     apiKey: String,
-    marker: Array
+    marker: Object
   }
   connect() {
     console.log("Map controller is on.")
@@ -11,7 +11,13 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/satellite-v9",
+      center: [this.markerValue.longitude, this.markerValue.latitude],
+      zoom: 12
     })
+
+    const marker = new mapboxgl.Marker({ color: "#4C7835" })
+        .setLngLat([this.markerValue.longitude, this.markerValue.latitude])
+        .addTo(this.map)
   }
 }

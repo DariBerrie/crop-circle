@@ -1,21 +1,35 @@
 <%# This page is where we can start bringing in the necessary data for the final view. %>
 <div class="container">
-
+  <div class="collapse" id="collapseExample">
+    <div>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>
+  </div>
   <div class="column column-right">
     <div class="card card-news">
-      <h3>News Feed</h3>
-        <% @articles.each do |article|  %>
-        <div class="card-new">
-          <div class='card-title'>
-            <%= image_tag("Maintenance.png") %>
-            <div class="card-info">
-              <h6> <%= article.category %></h6>
-              <p> <%= article.author %> </p>
+      <h3>News</h3>
+        <div class="news-container">
+          <% @articles.each_with_index do |article, index|  %>
+            <div class="card-new">
+              <div class='card-title'>
+                <%= image_tag("Maintenance.png") %>
+                <div class="card-info">
+                  <h6> <%= article.category %></h6>
+                  <p> <%= article.author %> </p>
+                </div>
+              </div>
+              <% if article.content.length > 300 %>
+                <% article_id = "article#{index}" %>
+                <p class="article-truncated" id="<%= article_id %>">
+                  <%= article.content %>
+                </p>
+                <button class="custom-collapse-btn" data-toggle="custom-collapse" data-target="#<%= article_id %>" aria-expanded="false" aria-controls="#<%= article_id %>">Read More</button>
+              <% else %>
+                <p> <%= article.content %></p>
+              <% end %>
             </div>
-          </div>
-          <p> <%= article.content %></p>
+          <% end %>
         </div>
-        <% end %>
     </div>
     <div class="card card-tasks">
       <h3>Task Progress</h3>
@@ -29,7 +43,7 @@
 
       <div class="d-flex flex-row justify-content-center">
       <div class="d-flex flex-column">
-        <div class="weather-week-panel" style="border-bottom:1px solid grey;margin-bottom:8px;">
+        <div class="weather-week-panel" style="border-bottom:1px solid #EFEADD;margin-bottom:8px;">
           <% @weather_week.each do |day|%>
             <div class="weather-card">
               <p><%= day[:weekday][0..2] %></p>
@@ -76,7 +90,7 @@
             data-controller="map"
             data-map-marker-value="<%= current_user.farm.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            style="border-radius:16px;height:200px;width:100px;"></div>
+            style="border-radius:16px;height:100%;width:170px;"></div>
       </div>
     </div>
     </div>
