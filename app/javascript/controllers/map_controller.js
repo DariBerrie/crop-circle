@@ -13,11 +13,13 @@ export default class extends Controller {
       container: this.element,
       style: "mapbox://styles/mapbox/satellite-v9",
       center: [this.markerValue.longitude, this.markerValue.latitude],
-      zoom: 12
+      zoom: 16
     })
 
     const marker = new mapboxgl.Marker({ color: "#4C7835" })
         .setLngLat([this.markerValue.longitude, this.markerValue.latitude])
         .addTo(this.map)
+
   }
+
 }
