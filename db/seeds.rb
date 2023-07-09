@@ -18,7 +18,7 @@ user = User.create!(first_name: "Natalia", last_name: "Farmer", email: "natalia.
              username: "n_farmer", password: "123456")
 
 puts "Natalia Farmer created"
-farm = Farm.create!(address: "24629 180th St, Minburn, IA 50167, United States", user: user)
+farm = Farm.create!(address: "400 Chemin Des Pins, 26260 Saint Donat Sur L'Herbasse, France", user: user)
 puts "Farm created"
 
 # create different tasks
