@@ -1,4 +1,4 @@
-Crop Circle is an app extension that compliments a farmer's John Deere Operations Center.
+Crop Circle is an app extension created by team Rubydobeedo during [HerHackathon 2023](https://thehackathoncompany.com/herhackathon/) that compliments a farmer's John Deere Operations Center.
 Instead of solely relying out the data provided in the operations center and the recommendations of outside agronomists, Crop Circle provides agricultural profressionals with the poignant information needed from their farm and from external source in order to make fast, informed decisions. 
 
 https://crop-circle.onrender.com/dashboard
